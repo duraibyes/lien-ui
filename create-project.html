@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./assets/images/favicon.svg">
-  <title>Profile | Lien Manager</title>
+  <title>Dashboard | Lien Manager</title>
   <link href="./assets/css/output.css" rel="stylesheet">
+
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
   <style type="text/css">
     .lf-progress {
       -webkit-appearance: none;
@@ -614,11 +616,12 @@
             <a href="index.html"
               class="text-gray-500 dark:text-gray-400 text-sm px-4 py-6 hover:text-primary-500 font-medium">Home</a>
             <a href="contact.html"
-              class="text-gray-500 dark:text-gray-400 text-sm px-4 py-6 hover:text-primary-500 font-medium">Contact Us</a>
+              class="text-gray-500 dark:text-gray-400 text-sm px-4 py-6 hover:text-primary-500 font-medium">Contact
+              Us</a>
             <a href="help.html"
               class="text-gray-500 dark:text-gray-400 text-sm px-4 py-6 hover:text-primary-500 font-medium">Get Help</a>
           </nav>
-  
+
           <!-- Right side buttons -->
           <div class="flex items-center">
             <!-- Dark Mode Toggle Start -->
@@ -639,16 +642,17 @@
               </svg>
             </button> -->
             <!-- Dark Mode Toggle End -->
-  
-            <button class="ml-2 inline-flex items-center dark:hover:bg-white/5 dark:hover:text-white/90 hover:bg-gray-100 hover:text-gray-800 text-gray-500 dark:text-gray-400 justify-center border border-gray-200 dark:border-gray-700 rounded-full size-11">
+
+            <button
+              class="ml-2 inline-flex items-center dark:hover:bg-white/5 dark:hover:text-white/90 hover:bg-gray-100 hover:text-gray-800 text-gray-500 dark:text-gray-400 justify-center border border-gray-200 dark:border-gray-700 rounded-full size-11">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15 17H9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
                 <path d="M18 8C18 5.2386 15.7614 3 13 3H11C8.2386 3 6 5.2386 6 8V12.5L4.5 15.5H19.5L18 12.5V8Z"
                   stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
               </svg>
-  
+
             </button>
-  
+
             <!-- Account dropdown -->
             <div class="ml-4 relative flex-shrink-0" x-data="{ open: false }">
               <div>
@@ -685,7 +689,7 @@
                     </svg>
                     Account settings
                   </a>
-                 
+               
                   <div class="my-3 h-px bg-gray-200 dark:bg-gray-800"></div>
                   <a href="#"
                     class="px-3 py-2 flex gap-3 dark:hover:bg-white/[0.05] dark:text-gray-400 font-medium items-center text-sm text-gray-700 hover:text-gray-800 transition hover:bg-gray-100 rounded-lg dark:hover:text-white/90">
@@ -699,7 +703,7 @@
                 </div>
               </div>
             </div>
-  
+
             <!-- Mobile right sidebar button -->
             <button @click="rightSidebarOpen = !rightSidebarOpen" type="button"
               class="inline-flex ml-4 lg:hidden items-center dark:hover:bg-white/5 dark:hover:text-white/90 hover:bg-gray-100 hover:text-gray-800 text-gray-500 dark:text-gray-400 justify-center border border-gray-200 dark:border-gray-700 rounded-full size-11">
@@ -734,8 +738,8 @@
             Main Menu
           </span>
           <nav class="space-y-1">
-             <a href="dashboard.html"
-              class="group flex gap-2.5 dark:hover:bg-primary-500/10 hover:bg-primary-50 border-l-3 border-transparent hover:border-l-3 hover:border-primary-500 items-center px-10 py-3 text-sm font-medium dark:text-gray-400 text-gray-700">
+            <a href="dashboard.html"
+              class="group flex gap-2.5 dark:hover:bg-primary-500/10 text-primary-500 hover:bg-primary-50 border-l-3 border-transparent hover:border-l-3 hover:border-primary-500 items-center px-10 py-3 text-sm font-medium dark:text-gray-400 text-gray-700">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                   d="M5.1665 2.91666C3.92386 2.91666 2.9165 3.92402 2.9165 5.16666V7.33333V16.8333C2.9165 18.076 3.92387 19.0833 5.16651 19.0833H16.8332C18.0758 19.0833 19.0832 18.076 19.0832 16.8333V14.6667V11V8.83333C19.0832 7.59069 18.0758 6.58333 16.8332 6.58333H16.7915V5.16666C16.7915 3.92402 15.7841 2.91666 14.5415 2.91666H5.1665ZM16.0415 8.08333H4.4165V16.8333C4.4165 17.2475 4.75229 17.5833 5.16651 17.5833H16.8332C17.2474 17.5833 17.5832 17.2475 17.5832 16.8333V15.4167H15.479C14.2364 15.4167 13.229 14.4093 13.229 13.1667V12.5C13.229 11.2574 14.2364 10.25 15.479 10.25H17.5832V8.83333C17.5832 8.41912 17.2474 8.08333 16.8332 8.08333H16.0415ZM15.2915 6.58333V5.16666C15.2915 4.75245 14.9557 4.41666 14.5415 4.41666H5.1665C4.75229 4.41666 4.4165 4.75245 4.4165 5.16666V6.58333H15.2915ZM17.5832 11.75V13.9167H15.479C15.0648 13.9167 14.729 13.5809 14.729 13.1667V12.5C14.729 12.0858 15.0648 11.75 15.479 11.75H17.5832Z"
@@ -743,7 +747,7 @@
               </svg>
               Projects
             </a>
-             <a href="reports.html"
+            <a href="reports.html"
               class="group flex gap-2.5 dark:hover:bg-primary-500/10 hover:bg-primary-50 border-l-3 border-transparent hover:border-l-3 hover:border-primary-500 items-center px-10 py-3 text-sm font-medium dark:text-gray-400 text-gray-700">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -753,7 +757,7 @@
               Reports
             </a>
             <a href="profile.html"
-              class="group dark:bg-primary-500/10 flex gap-2.5 border-l-3 border-primary-500 hover:bg-primary-50 items-center px-10 py-3 text-sm font-medium text-primary-500 dark:hover:bg-primary-500/10">
+              class="group dark:bg-primary-500/10 flex gap-2.5 border-l-3 border-primary-500 hover:bg-primary-50 items-center px-10 py-3 text-sm font-medium  dark:hover:bg-primary-500/10">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                   d="M8.7526 6.7963C8.7526 5.3555 9.9206 4.1875 11.3614 4.1875C12.8022 4.1875 13.9702 5.3555 13.9702 6.7963C13.9702 8.2371 12.8022 9.4051 11.3614 9.4051C9.9206 9.4051 8.7526 8.2371 8.7526 6.7963ZM11.3614 2.6875C9.09217 2.6875 7.2526 4.52707 7.2526 6.7963C7.2526 9.06553 9.09217 10.9051 11.3614 10.9051C13.6306 10.9051 15.4702 9.06553 15.4702 6.7963C15.4702 4.52707 13.6306 2.6875 11.3614 2.6875ZM9.8148 12.208C6.38467 12.208 3.604 14.9887 3.604 18.4188V18.7367C3.604 19.1509 3.93979 19.4867 4.354 19.4867C4.76822 19.4867 5.104 19.1509 5.104 18.7367V18.4188C5.104 15.8171 7.2131 13.708 9.8148 13.708H12.9092C15.511 13.708 17.6201 15.8171 17.6201 18.4188V18.7367C17.6201 19.1509 17.9558 19.4867 18.3701 19.4867C18.7843 19.4867 19.1201 19.1509 19.1201 18.7367V18.4188C19.1201 14.9887 16.3394 12.208 12.9092 12.208H9.8148Z"
@@ -761,7 +765,7 @@
               </svg>
               Profile
             </a>
-           
+
             <a href="users.html"
               class="group flex dark:hover:bg-primary-500/10 gap-2.5 hover:bg-primary-50 border-l-3 border-transparent hover:border-l-3 hover:border-primary-500 items-center px-10 py-3 text-sm font-medium text-gray-700 dark:text-gray-400">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -779,141 +783,20 @@
     <!-- Main Content -->
     <div class="flex-1">
       <main class="py-6 px-4 sm:px-6 lg:px-8">
-        <!-- Welcome Banner -->
-        <div class="mb-8 bg-primary rounded-2xl relative overflow-hidden dashboard-gradient" x-data="{ closed: false }"
-          x-show="!closed">
-          <div class="px-6 py-8 md:px-10 md:py-10 md:max-w-3xl relative z-10">
-            <div>
-              <h2 class="text-2xl font-bold text-white mb-2">
-                Welcome to Lien Manager
-              </h2>
-              <p class="text-white/80 text-sm mb-6">
-               AI-Powered Lien Management for Construction Professionals
-              </p>
-            </div>
-          </div>
-          <img src="./assets/images/dashboard/Saly.png" alt="AI Agent illustration"
-            class="absolute right-5 top-0 h-full object-contain hidden md:block" style="max-width: 300px">
-          <button @click="closed = true"
-            class="rounded-full p-2 bg-white/30 hover:bg-white/70 hover:text-gray-800 transition text-gray-500 absolute right-3 top-3"
-            fdprocessedid="jo71t">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M3.96967 5.03099C3.67678 4.73809 3.67678 4.26322 3.96967 3.97033C4.26256 3.67743 4.73744 3.67743 5.03033 3.97033L7.99935 6.93934L10.9683 3.97041C11.2612 3.67752 11.736 3.67752 12.0289 3.97041C12.3218 4.26331 12.3218 4.73818 12.0289 5.03107L9.06001 8L12.0289 10.9689C12.3218 11.2618 12.3218 11.7367 12.0289 12.0296C11.736 12.3225 11.2612 12.3225 10.9683 12.0296L7.99935 9.06066L5.03033 12.0297C4.73744 12.3226 4.26256 12.3226 3.96967 12.0297C3.67678 11.7368 3.67678 11.2619 3.96967 10.969L6.93869 8.00001L3.96967 5.03099Z"
-                fill="currentColor"></path>
-            </svg>
-          </button>
-        </div>
+        <div class="max-w-7xl p-6">
+          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6">
+            <!-- Header -->
+             <div class="flex items-center justify-between mb-6">
 
-        <!-- Profile Section -->
-        <div class="mb-8 p-6 rounded-2xl border bg-white border-gray-100 dark:border-gray-800 dark:bg-dark-primary">
-          <h2 class="text-lg font-bold text-gray-800 dark:text-white/90 mb-6">
-            My Profile
-          </h2>
-          <div
-            class="bg-white border dark:bg-dark-primary dark:border-gray-800 border-gray-200 rounded-xl overflow-hidden">
-            <div class="p-6 flex justify-between items-center">
-              <h3 class="text-lg font-semibold text-gray-800 dark:text-white/90">
-                Personal Information
-              </h3>
-              <button @click="editProfileModal = true"
-                class="inline-flex items-center shadow-theme-xs dark:hover:bg-white/5 dark:hover:text-white/90 transition dark:bg-dark-primary dark:text-gray-400 px-4 py-3 gap-2 dark:border-gray-800 border border-gray-200 text-sm font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50"
-                fdprocessedid="s9a9y">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M15.0909 2.78198C14.2122 1.9033 12.7876 1.9033 11.9089 2.78198L4.57499 10.1159C4.26658 10.4243 4.05446 10.8157 3.96443 11.2425L3.31206 14.3351C3.25973 14.5832 3.33629 14.8409 3.51558 15.0202C3.69487 15.1995 3.95262 15.2761 4.20071 15.2237L7.2933 14.5714C7.72007 14.4813 8.11147 14.2692 8.41988 13.9608L15.7538 6.62687C16.6325 5.74819 16.6325 4.32357 15.7538 3.44489L15.0909 2.78198ZM12.9696 3.84264C13.2625 3.54975 13.7373 3.54975 14.0302 3.84264L14.6932 4.50555C14.986 4.79845 14.986 5.27332 14.6932 5.56621L14.0437 6.21565L12.3201 4.49208L12.9696 3.84264ZM11.2595 5.55274L5.63565 11.1766C5.53285 11.2794 5.46214 11.4098 5.43213 11.5521L5.01733 13.5185L6.9837 13.1037C7.12595 13.0737 7.25642 13.0029 7.35922 12.9001L12.9831 7.27631L11.2595 5.55274Z"
-                    fill="currentColor"></path>
-                </svg>
-                Edit
-              </button>
-            </div>
-            <div class="max-w-lg p-6 pt-0">
-              <div class="grid grid-cols-2 gap-7">
-                <div>
-                  <label class="block text-sm font-medium text-gray-500 dark:text-gray-400">First Name</label>
-                  <span class="mt-1 block text-base text-gray-800 dark:text-white/90">Andrio</span>
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-gray-500 dark:text-gray-400">Last Name</label>
-                  <span class="mt-1 block text-base text-gray-800 dark:text-white/90">Metheio</span>
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-gray-500 dark:text-gray-400">Email address</label>
-                  <span class="mt-1 block text-base text-gray-800 dark:text-white/90">random@pimjo.com</span>
-                </div>
-                 <div>
-                  <label class="block text-sm font-medium text-gray-500 dark:text-gray-400">Profile Picture</label>
-                  <span class="mt-1 block text-base text-gray-800 dark:text-white/90">
-                    <img src="./assets/images/users/user-2.png" alt="profile Picture" class="h-12 w-12 rounded-full object-cover">
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Security Section -->
-        <div class="p-6 rounded-2xl border bg-white border-gray-100 dark:border-gray-800 dark:bg-dark-primary">
-          <div
-            class="bg-white dark:bg-dark-primary dark:border-gray-800 border p-6 border-gray-200 rounded-2xl overflow-hidden">
-            <div class="flex flex-col gap-5 sm:flex-row justify-between sm:items-center">
-              <h3 class="text-lg font-semibold dark:text-white/90 text-gray-800">
-                Change your Password
-              </h3>
-              <div>
-                <button @click="changePasswordModal = true"
-                  class="inline-flex items-center dark:hover:bg-white/5 dark:hover:text-white/90 transition dark:bg-dark-primary dark:text-gray-400 px-4 py-3 gap-2 dark:border-gray-800 border border-gray-200 shadow-theme-xs text-sm font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50"
-                  fdprocessedid="o3jzf">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M15.0909 2.78198C14.2122 1.9033 12.7876 1.9033 11.9089 2.78198L4.57499 10.1159C4.26658 10.4243 4.05446 10.8157 3.96443 11.2425L3.31206 14.3351C3.25973 14.5832 3.33629 14.8409 3.51558 15.0202C3.69487 15.1995 3.95262 15.2761 4.20071 15.2237L7.2933 14.5714C7.72007 14.4813 8.11147 14.2692 8.41988 13.9608L15.7538 6.62687C16.6325 5.74819 16.6325 4.32357 15.7538 3.44489L15.0909 2.78198ZM12.9696 3.84264C13.2625 3.54975 13.7373 3.54975 14.0302 3.84264L14.6932 4.50555C14.986 4.79845 14.986 5.27332 14.6932 5.56621L14.0437 6.21565L12.3201 4.49208L12.9696 3.84264ZM11.2595 5.55274L5.63565 11.1766C5.53285 11.2794 5.46214 11.4098 5.43213 11.5521L5.01733 13.5185L6.9837 13.1037C7.12595 13.0737 7.25642 13.0029 7.35922 12.9001L12.9831 7.27631L11.2595 5.55274Z"
-                      fill="currentColor"></path>
-                  </svg>
-                  Change Password
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Notification settings -->
-          <div class="p-6 rounded-2xl border bg-white border-gray-100 dark:border-gray-800 dark:bg-dark-primary">
-          <div
-            class="bg-white dark:bg-dark-primary dark:border-gray-800 border p-6 border-gray-200 rounded-2xl overflow-hidden">
-            <div class="flex flex-col gap-5 sm:flex-row justify-between sm:items-center">
-              <h3 class="text-lg font-semibold dark:text-white/90 text-gray-800">
-                Notification Settings
-              </h3>
+               <h2 class="text-xl font-bold text-gray-800 dark:text-white mb-4">
+                 Create Projects
+               </h2>
               
-            </div>
-            <div class="flex justify-between">
-              <div>
-
-                <label class="inline-flex items-center mt-4 mr-4">
-                  <input type="radio" name="notification_day" class="form-checkbox h-5 w-5 text-primary-600" checked>
-                  <span class="ml-2 text-gray-700 dark:text-white/90">7 Days</span>
-                </label>
-                <label class="inline-flex items-center mt-4 mr-4">
-                  <input type="radio" name="notification_day" class="form-checkbox h-5 w-5 text-primary-600">
-                  <span class="ml-2 text-gray-700 dark:text-white/90"> 14 Days </span>
-                </label>
-                <label class="inline-flex items-center mt-4 mr-4">
-                  <input type="radio" name="notification_day" class="form-checkbox h-5 w-5 text-primary-600" >
-                  <span class="ml-2 text-gray-700 dark:text-white/90"> 21 Days</span>
-                </label>
-                <label class="inline-flex items-center mt-4">
-                  <input type="radio" name="notification_day" class="form-checkbox h-5 w-5 text-primary-600" >
-                  <span class="ml-2 text-gray-700 dark:text-white/90"> 28 Days</span>
-                </label>
-              </div>
-              <div>
-                <button class="inline-flex items-center dark:hover:bg-white/5 dark:hover:text-white/90 transition dark:bg-dark-primary dark:text-gray-400 px-4 py-3 gap-2 dark:border-gray-800 border border-gray-200 shadow-theme-xs text-sm font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50">
-                  Save Settings
-                  </button>
-
-              </div>
-            </div>
+             </div>
+           
           </div>
         </div>
+
       </main>
     </div>
 
@@ -948,243 +831,6 @@
   <div @click="sidebarOpen = false; rightSidebarOpen = false"
     class="fixed inset-0 z-10 bg-gray-900/50 transition-opacity lg:hidden opacity-0 pointer-events-none"
     :class="{'opacity-100': sidebarOpen || rightSidebarOpen, 'opacity-0 pointer-events-none': !sidebarOpen &amp;&amp; !rightSidebarOpen}">
-  </div>
-
-  <!-- Edit Profile Modal -->
-  <div x-show="editProfileModal" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog"
-    aria-modal="true" style="display: none;">
-    <div class="flex items-center justify-center min-h-screen p-4">
-      <!-- Background overlay -->
-      <div x-show="editProfileModal" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
-        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="editProfileModal = false"
-        class="fixed inset-0 bg-gray-800/80 backdrop-blur-lg transition-opacity" aria-hidden="true"
-        style="display: none;"></div>
-
-      <!-- Modal panel -->
-      <div x-show="editProfileModal" x-transition:enter="ease-out duration-300"
-        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200"
-        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        class="bg-white dark:bg-dark-primary rounded-3xl text-left overflow-hidden sm:w-[590px] transform transition-all p-5 sm:p-12"
-        style="display: none;">
-        <div class="absolute top-0 right-0 pt-4 pr-4">
-          <button @click="editProfileModal = false" type="button"
-            class="bg-gray-100 dark:bg-white/5 dark:text-gray-400 hover:bg-gray-200 rounded-full size-9 inline-flex items-center justify-center text-gray-500">
-            <span class="sr-only">Close</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M5.09467 6.15615C4.80178 5.86325 4.80178 5.38838 5.09467 5.09549C5.38756 4.80259 5.86244 4.80259 6.15533 5.09549L9.99919 8.93934L13.8429 5.0956C14.1358 4.8027 14.6107 4.8027 14.9036 5.0956C15.1965 5.38849 15.1965 5.86336 14.9036 6.15626L11.0598 10L14.9036 13.8437C15.1965 14.1366 15.1965 14.6115 14.9036 14.9044C14.6107 15.1973 14.1358 15.1973 13.8429 14.9044L9.99919 11.0607L6.15533 14.9045C5.86244 15.1974 5.38756 15.1974 5.09467 14.9045C4.80178 14.6116 4.80178 14.1368 5.09467 13.8439L8.93853 10L5.09467 6.15615Z"
-                fill="#667085"></path>
-            </svg>
-          </button>
-        </div>
-        <div class="mt-3 text-left w-full">
-          <h3 class="text-[30px] mb-2 leading-[38px] font-bold text-gray-800 dark:text-white/90" id="modal-title">
-            Edit Account Info
-          </h3>
-          <p class="text-gray-500 dark:text-gray-400">
-            You can edit your account information from here.
-          </p>
-          <div class="mt-6">
-            <form class="space-y-5">
-              <div class="grid gap-5">
-                <div>
-                  <label for="first-name" class="block text-sm dark:text-gray-400 font-medium text-gray-700">
-                    First name
-                  </label>
-                  <div class="mt-1">
-                    <input type="text" name="first-name" id="first-name" autocomplete="given-name" value="Andrio"
-                      class="border w-full text-sm dark:text-white/90 dark:placeholder:text-white/90 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left h-12 shadow-theme-xs border-gray-300 rounded-full px-5 py-2.5">
-                  </div>
-                </div>
-                <div>
-                  <label for="last-name" class="block text-sm dark:text-gray-400 font-medium text-gray-700">
-                    Last name
-                  </label>
-                  <div class="mt-1">
-                    <input type="text" name="last-name" id="last-name" autocomplete="family-name" value="Metheio"
-                      class="border w-full text-sm dark:text-white/90 dark:placeholder:text-white/90 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left h-12 shadow-theme-xs border-gray-300 rounded-full px-5 py-2.5">
-                  </div>
-                </div>
-
-                <div>
-                  <label for="email" class="block text-sm dark:text-gray-400 font-medium text-gray-700">
-                    Email address
-                  </label>
-                  <div class="mt-1">
-                    <input id="email" name="email" type="email" autocomplete="email" value="random@pimjo.com"
-                      class="border w-full text-sm dark:text-white/90 dark:placeholder:text-white/90 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left h-12 shadow-theme-xs border-gray-300 rounded-full px-5 py-2.5">
-                  </div>
-                </div>
-                <div>
-                  <label for="email" class="block text-sm dark:text-gray-400 font-medium text-gray-700">
-                    Profile Picture
-                  </label>
-                  <div class="mt-1">
-                    <input id="profile_pic" name="profile_pic" type="file"
-                      class="border w-full text-sm dark:text-white/90 dark:placeholder:text-white/90 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left h-12 shadow-theme-xs border-gray-300 rounded-full px-5 py-2.5">
-                  </div>
-                </div>
-              </div>
-            </form>
-            <div class="space-x-3 mt-6">
-              <button @click="editProfileModal = false" type="button"
-                class="text-white dark:bg-white/5 text-sm font-medium transition-colors hover:bg-gray-800 py-3 px-6 rounded-full border-gray-200 bg-gray-700">
-                Save Changes
-              </button>
-              <button @click="editProfileModal = false" type="button"
-                class="text-gray-700 text-sm font-medium py-3 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 px-6 rounded-full border-gray-200 border">
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Change Password Modal -->
-  <div x-show="changePasswordModal" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title"
-    role="dialog" aria-modal="true" style="display: none;">
-    <div class="flex items-center justify-center min-h-screen p-4">
-      <!-- Background overlay -->
-      <div x-show="changePasswordModal" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
-        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="changePasswordModal = false"
-        class="fixed inset-0 bg-gray-800/80 backdrop-blur-lg transition-opacity" aria-hidden="true"
-        style="display: none;"></div>
-
-      <!-- Modal panel -->
-      <div x-show="changePasswordModal" x-transition:enter="ease-out duration-300"
-        x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200"
-        x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-        x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        class="bg-white dark:bg-dark-primary rounded-3xl text-left overflow-hidden sm:w-[590px] transform transition-all p-5 sm:p-12"
-        style="display: none;">
-        <div class="absolute top-0 right-0 pt-4 pr-4">
-          <button @click="changePasswordModal = false" type="button"
-            class="bg-gray-100 dark:bg-white/5 dark:hover:bg-gray-700 dark:text-gray-400 hover:bg-gray-200 rounded-full size-9 inline-flex items-center justify-center text-gray-500">
-            <span class="sr-only">Close</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M5.09467 6.15615C4.80178 5.86325 4.80178 5.38838 5.09467 5.09549C5.38756 4.80259 5.86244 4.80259 6.15533 5.09549L9.99919 8.93934L13.8429 5.0956C14.1358 4.8027 14.6107 4.8027 14.9036 5.0956C15.1965 5.38849 15.1965 5.86336 14.9036 6.15626L11.0598 10L14.9036 13.8437C15.1965 14.1366 15.1965 14.6115 14.9036 14.9044C14.6107 15.1973 14.1358 15.1973 13.8429 14.9044L9.99919 11.0607L6.15533 14.9045C5.86244 15.1974 5.38756 15.1974 5.09467 14.9045C4.80178 14.6116 4.80178 14.1368 5.09467 13.8439L8.93853 10L5.09467 6.15615Z"
-                fill="currentColor"></path>
-            </svg>
-          </button>
-        </div>
-        <div class="mt-3 text-left w-full">
-          <h3 class="text-[30px] mb-2 dark:text-white/90 leading-[38px] font-bold text-gray-800" id="modal-title">
-            Change Password
-          </h3>
-          <p class="text-gray-500 dark:text-gray-400">
-            Make sure to create a strong password to mark your projects.
-          </p>
-          <div class="mt-6">
-            <form class="space-y-5">
-              <div class="grid gap-5">
-                <div>
-                  <label for="old-password" class="block text-sm font-medium dark:text-gray-400 text-gray-700">
-                    Old password
-                  </label>
-                  <div class="relative mt-1" x-data="{ showPassword: false }">
-                    <input id="old-password" :type="showPassword ? 'text' : 'password'"
-                      class="border w-full text-sm dark:text-white/90 dark:placeholder:text-white/90 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left h-12 shadow-theme-xs border-gray-300 rounded-full px-5 py-2.5"
-                      placeholder="Enter your password" type="password">
-                    <span class="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
-                      @click="showPassword = !showPassword">
-                      <!-- Eye Open Icon (shown when password is hidden) -->
-                      <svg x-show="!showPassword" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M10.0002 13.862C7.23361 13.862 4.86803 12.1373 3.92328 9.7025C4.86804 7.2677 7.23361 5.54306 10.0002 5.54306C12.7667 5.54306 15.1323 7.26771 16.0771 9.70252C15.1323 12.1373 12.7667 13.862 10.0002 13.862ZM10.0002 4.04306C6.48191 4.04306 3.49489 6.30927 2.4155 9.45939C2.3615 9.61697 2.3615 9.78803 2.41549 9.94561C3.49488 13.0957 6.48191 15.362 10.0002 15.362C13.5184 15.362 16.5055 13.0958 17.5849 9.94564C17.6389 9.78806 17.6389 9.61699 17.5849 9.45941C16.5055 6.30928 13.5184 4.04306 10.0002 4.04306ZM9.99151 7.84422C8.96527 7.84422 8.13333 8.67616 8.13333 9.7024C8.13333 10.7286 8.96527 11.5606 9.99151 11.5606H10.0064C11.0326 11.5606 11.8646 10.7286 11.8646 9.7024C11.8646 8.67616 11.0326 7.84422 10.0064 7.84422H9.99151Z"
-                          fill="#98A2B3"></path>
-                      </svg>
-
-                      <!-- Eye Closed Icon (shown when password is visible) -->
-                      <svg x-show="showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 20 20" fill="none" style="display: none;">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M4.63803 3.57712C4.34513 3.28423 3.87026 3.28423 3.57737 3.57712C3.28447 3.87002 3.28447 4.34489 3.57737 4.63778L4.85323 5.91365C3.74609 6.84202 2.89363 8.06398 2.4155 9.45939C2.3615 9.61697 2.3615 9.78804 2.41549 9.94561C3.49488 13.0957 6.48191 15.362 10.0002 15.362C11.255 15.362 12.4422 15.0737 13.4994 14.5599L15.3625 16.4229C15.6554 16.7158 16.1302 16.7158 16.4231 16.4229C16.716 16.13 16.716 15.6551 16.4231 15.3622L4.63803 3.57712ZM12.3608 13.4212L10.4475 11.5079C10.3061 11.5423 10.1584 11.5606 10.0064 11.5606H9.99151C8.96527 11.5606 8.13333 10.7286 8.13333 9.7024C8.13333 9.54613 8.15262 9.39437 8.18895 9.24936L5.91885 6.97926C5.03505 7.69018 4.34057 8.62707 3.92328 9.7025C4.86803 12.1373 7.23361 13.862 10.0002 13.862C10.8326 13.862 11.6287 13.7058 12.3608 13.4212ZM16.0771 9.70252C15.7843 10.457 15.3552 11.1432 14.8199 11.7311L15.8813 12.7926C16.6329 11.9813 17.2187 11.0143 17.5849 9.94564C17.6389 9.78806 17.6389 9.61699 17.5849 9.45941C16.5055 6.30928 13.5184 4.04306 10.0002 4.04306C9.13525 4.04306 8.30244 4.18002 7.52218 4.43341L8.75139 5.66262C9.1556 5.58416 9.57311 5.54306 10.0002 5.54306C12.7667 5.54306 15.1323 7.26771 16.0771 9.70252Z"
-                          fill="#667085"></path>
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <label for="new-password" class="block text-sm dark:text-gray-400 font-medium text-gray-700">
-                    New password
-                  </label>
-                  <div class="relative mt-1" x-data="{ showPassword: false }">
-                    <input id="new-password" :type="showPassword ? 'text' : 'password'"
-                      class="border w-full text-sm dark:text-white/90 dark:placeholder:text-white/90 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left h-12 shadow-theme-xs border-gray-300 rounded-full px-5 py-2.5"
-                      placeholder="Enter your password" type="password">
-                    <span class="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
-                      @click="showPassword = !showPassword">
-                      <!-- Eye Open Icon (shown when password is hidden) -->
-                      <svg x-show="!showPassword" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M10.0002 13.862C7.23361 13.862 4.86803 12.1373 3.92328 9.7025C4.86804 7.2677 7.23361 5.54306 10.0002 5.54306C12.7667 5.54306 15.1323 7.26771 16.0771 9.70252C15.1323 12.1373 12.7667 13.862 10.0002 13.862ZM10.0002 4.04306C6.48191 4.04306 3.49489 6.30927 2.4155 9.45939C2.3615 9.61697 2.3615 9.78803 2.41549 9.94561C3.49488 13.0957 6.48191 15.362 10.0002 15.362C13.5184 15.362 16.5055 13.0958 17.5849 9.94564C17.6389 9.78806 17.6389 9.61699 17.5849 9.45941C16.5055 6.30928 13.5184 4.04306 10.0002 4.04306ZM9.99151 7.84422C8.96527 7.84422 8.13333 8.67616 8.13333 9.7024C8.13333 10.7286 8.96527 11.5606 9.99151 11.5606H10.0064C11.0326 11.5606 11.8646 10.7286 11.8646 9.7024C11.8646 8.67616 11.0326 7.84422 10.0064 7.84422H9.99151Z"
-                          fill="#98A2B3"></path>
-                      </svg>
-
-                      <!-- Eye Closed Icon (shown when password is visible) -->
-                      <svg x-show="showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 20 20" fill="none" style="display: none;">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M4.63803 3.57712C4.34513 3.28423 3.87026 3.28423 3.57737 3.57712C3.28447 3.87002 3.28447 4.34489 3.57737 4.63778L4.85323 5.91365C3.74609 6.84202 2.89363 8.06398 2.4155 9.45939C2.3615 9.61697 2.3615 9.78804 2.41549 9.94561C3.49488 13.0957 6.48191 15.362 10.0002 15.362C11.255 15.362 12.4422 15.0737 13.4994 14.5599L15.3625 16.4229C15.6554 16.7158 16.1302 16.7158 16.4231 16.4229C16.716 16.13 16.716 15.6551 16.4231 15.3622L4.63803 3.57712ZM12.3608 13.4212L10.4475 11.5079C10.3061 11.5423 10.1584 11.5606 10.0064 11.5606H9.99151C8.96527 11.5606 8.13333 10.7286 8.13333 9.7024C8.13333 9.54613 8.15262 9.39437 8.18895 9.24936L5.91885 6.97926C5.03505 7.69018 4.34057 8.62707 3.92328 9.7025C4.86803 12.1373 7.23361 13.862 10.0002 13.862C10.8326 13.862 11.6287 13.7058 12.3608 13.4212ZM16.0771 9.70252C15.7843 10.457 15.3552 11.1432 14.8199 11.7311L15.8813 12.7926C16.6329 11.9813 17.2187 11.0143 17.5849 9.94564C17.6389 9.78806 17.6389 9.61699 17.5849 9.45941C16.5055 6.30928 13.5184 4.04306 10.0002 4.04306C9.13525 4.04306 8.30244 4.18002 7.52218 4.43341L8.75139 5.66262C9.1556 5.58416 9.57311 5.54306 10.0002 5.54306C12.7667 5.54306 15.1323 7.26771 16.0771 9.70252Z"
-                          fill="#667085"></path>
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <label for="retype-new-password" class="block text-sm font-medium dark:text-gray-400 text-gray-700">
-                    Re-type new password
-                  </label>
-                  <div class="relative mt-1" x-data="{ showPassword: false }">
-                    <input id="retype-new-password" :type="showPassword ? 'text' : 'password'"
-                      class="border w-full text-sm dark:text-white/90 dark:placeholder:text-white/90 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left h-12 shadow-theme-xs border-gray-300 rounded-full px-5 py-2.5"
-                      placeholder="Enter your password" type="password">
-                    <span class="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer"
-                      @click="showPassword = !showPassword">
-                      <!-- Eye Open Icon (shown when password is hidden) -->
-                      <svg x-show="!showPassword" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M10.0002 13.862C7.23361 13.862 4.86803 12.1373 3.92328 9.7025C4.86804 7.2677 7.23361 5.54306 10.0002 5.54306C12.7667 5.54306 15.1323 7.26771 16.0771 9.70252C15.1323 12.1373 12.7667 13.862 10.0002 13.862ZM10.0002 4.04306C6.48191 4.04306 3.49489 6.30927 2.4155 9.45939C2.3615 9.61697 2.3615 9.78803 2.41549 9.94561C3.49488 13.0957 6.48191 15.362 10.0002 15.362C13.5184 15.362 16.5055 13.0958 17.5849 9.94564C17.6389 9.78806 17.6389 9.61699 17.5849 9.45941C16.5055 6.30928 13.5184 4.04306 10.0002 4.04306ZM9.99151 7.84422C8.96527 7.84422 8.13333 8.67616 8.13333 9.7024C8.13333 10.7286 8.96527 11.5606 9.99151 11.5606H10.0064C11.0326 11.5606 11.8646 10.7286 11.8646 9.7024C11.8646 8.67616 11.0326 7.84422 10.0064 7.84422H9.99151Z"
-                          fill="#98A2B3"></path>
-                      </svg>
-
-                      <!-- Eye Closed Icon (shown when password is visible) -->
-                      <svg x-show="showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                        viewBox="0 0 20 20" fill="none" style="display: none;">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M4.63803 3.57712C4.34513 3.28423 3.87026 3.28423 3.57737 3.57712C3.28447 3.87002 3.28447 4.34489 3.57737 4.63778L4.85323 5.91365C3.74609 6.84202 2.89363 8.06398 2.4155 9.45939C2.3615 9.61697 2.3615 9.78804 2.41549 9.94561C3.49488 13.0957 6.48191 15.362 10.0002 15.362C11.255 15.362 12.4422 15.0737 13.4994 14.5599L15.3625 16.4229C15.6554 16.7158 16.1302 16.7158 16.4231 16.4229C16.716 16.13 16.716 15.6551 16.4231 15.3622L4.63803 3.57712ZM12.3608 13.4212L10.4475 11.5079C10.3061 11.5423 10.1584 11.5606 10.0064 11.5606H9.99151C8.96527 11.5606 8.13333 10.7286 8.13333 9.7024C8.13333 9.54613 8.15262 9.39437 8.18895 9.24936L5.91885 6.97926C5.03505 7.69018 4.34057 8.62707 3.92328 9.7025C4.86803 12.1373 7.23361 13.862 10.0002 13.862C10.8326 13.862 11.6287 13.7058 12.3608 13.4212ZM16.0771 9.70252C15.7843 10.457 15.3552 11.1432 14.8199 11.7311L15.8813 12.7926C16.6329 11.9813 17.2187 11.0143 17.5849 9.94564C17.6389 9.78806 17.6389 9.61699 17.5849 9.45941C16.5055 6.30928 13.5184 4.04306 10.0002 4.04306C9.13525 4.04306 8.30244 4.18002 7.52218 4.43341L8.75139 5.66262C9.1556 5.58416 9.57311 5.54306 10.0002 5.54306C12.7667 5.54306 15.1323 7.26771 16.0771 9.70252Z"
-                          fill="#667085"></path>
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <div class="space-x-3 mt-6">
-              <button @click="changePasswordModal = false" type="button"
-                class="text-white dark:bg-white/5 text-sm font-medium transition-colors hover:bg-gray-800 py-3 px-6 rounded-full border-gray-200 bg-gray-700">
-                Change Password
-              </button>
-              <button @click="changePasswordModal = false" type="button"
-                class="text-gray-700 text-sm font-medium py-3 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 px-6 rounded-full border-gray-200 border">
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <script defer="" src="./assets/js/alpine.min.js"></script>
