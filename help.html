@@ -1,0 +1,1005 @@
+<html class="light" data-qb-installed="true">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/images/favicon.svg">
+    <link href="./assets/css/glightbox.css" rel="stylesheet">
+    <link href="./assets/css/output.css" rel="stylesheet">
+    <title>AI Agent Demo: AI UI Kit for Tailwind CSS &amp; Figma</title>
+    <style type="text/css">
+        .lf-progress {
+            -webkit-appearance: none;
+            -moz-apperance: none;
+            width: 100%;
+            /* margin: 0 10px; */
+            height: 4px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .lf-progress:focus {
+            outline: none;
+            border: none;
+        }
+
+        .lf-progress::-moz-range-track {
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        .lf-progress::-webkit-slider-thumb {
+            -webkit-appearance: none !important;
+            height: 13px;
+            width: 13px;
+            border: 0;
+            border-radius: 50%;
+            background: #0fccce;
+            cursor: pointer;
+        }
+
+        .lf-progress::-moz-range-thumb {
+            -moz-appearance: none !important;
+            height: 13px;
+            width: 13px;
+            border: 0;
+            border-radius: 50%;
+            background: #0fccce;
+            cursor: pointer;
+        }
+
+        .lf-progress::-ms-track {
+            width: 100%;
+            height: 3px;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        .lf-progress::-ms-fill-lower {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        .lf-progress::-ms-fill-upper {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        .lf-progress::-ms-thumb {
+            border: 0;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background: #0fccce;
+            cursor: pointer;
+        }
+
+        .lf-progress:focus::-ms-fill-lower {
+            background: #ccc;
+        }
+
+        .lf-progress:focus::-ms-fill-upper {
+            background: #ccc;
+        }
+
+        .lf-player-container :focus {
+            outline: 0;
+        }
+
+        .lf-popover {
+            position: relative;
+        }
+
+        .lf-popover-content {
+            display: inline-block;
+            position: absolute;
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0, -10px);
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+            transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+        }
+
+        .lf-popover-content.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translate(0, 0px);
+        }
+
+        .lf-player-btn-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .lf-player-btn {
+            cursor: pointer;
+            fill: #999;
+            width: 14px;
+        }
+
+        .lf-player-btn.active {
+            fill: #555;
+        }
+
+        .lf-popover {
+            position: relative;
+        }
+
+        .lf-popover-content {
+            display: inline-block;
+            position: absolute;
+            background-color: #ffffff;
+            opacity: 1;
+
+            transform: translate(0, -10px);
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+            transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+            padding: 10px;
+        }
+
+        .lf-popover-content.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translate(0, 0px);
+        }
+
+        .lf-arrow {
+            position: absolute;
+            z-index: -1;
+            content: '';
+            bottom: -9px;
+            border-style: solid;
+            border-width: 10px 10px 0px 10px;
+        }
+
+        .lf-left-align,
+        .lf-left-align .lfarrow {
+            left: 0;
+            right: unset;
+        }
+
+        .lf-right-align,
+        .lf-right-align .lf-arrow {
+            right: 0;
+            left: unset;
+        }
+
+        .lf-text-input {
+            border: 1px #ccc solid;
+            border-radius: 5px;
+            padding: 3px;
+            width: 60px;
+            margin: 0;
+        }
+
+        .lf-color-picker {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .lf-color-selectors {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .lf-color-component {
+            display: flex;
+            flex-direction: row;
+            font-size: 12px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lf-color-component strong {
+            width: 40px;
+        }
+
+        .lf-color-component input[type='range'] {
+            margin: 0 0 0 10px;
+        }
+
+        .lf-color-component input[type='number'] {
+            width: 50px;
+            margin: 0 0 0 10px;
+        }
+
+        .lf-color-preview {
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 5px;
+        }
+
+        .lf-preview {
+            height: 60px;
+            width: 60px;
+        }
+
+        .lf-popover-snapshot {
+            width: 150px;
+        }
+
+        .lf-popover-snapshot h5 {
+            margin: 5px 0 10px 0;
+            font-size: 0.75rem;
+        }
+
+        .lf-popover-snapshot a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .lf-popover-snapshot a:before {
+            content: '⥼';
+            margin-right: 5px;
+        }
+
+        .lf-popover-snapshot .lf-note {
+            display: block;
+            margin-top: 10px;
+            color: #999;
+        }
+
+        .lf-player-controls>div {
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+
+        .lf-player-controls>div:first-child {
+            margin-left: 0px;
+        }
+
+        .lf-player-controls>div:last-child {
+            margin-right: 0px;
+        }
+    </style>
+    <style type="text/css">
+        .lf-progress {
+            -webkit-appearance: none;
+            -moz-apperance: none;
+            width: 100%;
+            /* margin: 0 10px; */
+            height: 4px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .lf-progress:focus {
+            outline: none;
+            border: none;
+        }
+
+        .lf-progress::-moz-range-track {
+            cursor: pointer;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        .lf-progress::-webkit-slider-thumb {
+            -webkit-appearance: none !important;
+            height: 13px;
+            width: 13px;
+            border: 0;
+            border-radius: 50%;
+            background: #0fccce;
+            cursor: pointer;
+        }
+
+        .lf-progress::-moz-range-thumb {
+            -moz-appearance: none !important;
+            height: 13px;
+            width: 13px;
+            border: 0;
+            border-radius: 50%;
+            background: #0fccce;
+            cursor: pointer;
+        }
+
+        .lf-progress::-ms-track {
+            width: 100%;
+            height: 3px;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        .lf-progress::-ms-fill-lower {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        .lf-progress::-ms-fill-upper {
+            background: #ccc;
+            border-radius: 3px;
+        }
+
+        .lf-progress::-ms-thumb {
+            border: 0;
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            background: #0fccce;
+            cursor: pointer;
+        }
+
+        .lf-progress:focus::-ms-fill-lower {
+            background: #ccc;
+        }
+
+        .lf-progress:focus::-ms-fill-upper {
+            background: #ccc;
+        }
+
+        .lf-player-container :focus {
+            outline: 0;
+        }
+
+        .lf-popover {
+            position: relative;
+        }
+
+        .lf-popover-content {
+            display: inline-block;
+            position: absolute;
+            opacity: 1;
+            visibility: visible;
+            transform: translate(0, -10px);
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+            transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+        }
+
+        .lf-popover-content.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translate(0, 0px);
+        }
+
+        .lf-player-btn-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .lf-player-btn {
+            cursor: pointer;
+            fill: #999;
+            width: 14px;
+        }
+
+        .lf-player-btn.active {
+            fill: #555;
+        }
+
+        .lf-popover {
+            position: relative;
+        }
+
+        .lf-popover-content {
+            display: inline-block;
+            position: absolute;
+            background-color: #ffffff;
+            opacity: 1;
+
+            transform: translate(0, -10px);
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+            transition: all 0.3s cubic-bezier(0.75, -0.02, 0.2, 0.97);
+            padding: 10px;
+        }
+
+        .lf-popover-content.hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translate(0, 0px);
+        }
+
+        .lf-arrow {
+            position: absolute;
+            z-index: -1;
+            content: '';
+            bottom: -9px;
+            border-style: solid;
+            border-width: 10px 10px 0px 10px;
+        }
+
+        .lf-left-align,
+        .lf-left-align .lfarrow {
+            left: 0;
+            right: unset;
+        }
+
+        .lf-right-align,
+        .lf-right-align .lf-arrow {
+            right: 0;
+            left: unset;
+        }
+
+        .lf-text-input {
+            border: 1px #ccc solid;
+            border-radius: 5px;
+            padding: 3px;
+            width: 60px;
+            margin: 0;
+        }
+
+        .lf-color-picker {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .lf-color-selectors {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .lf-color-component {
+            display: flex;
+            flex-direction: row;
+            font-size: 12px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lf-color-component strong {
+            width: 40px;
+        }
+
+        .lf-color-component input[type='range'] {
+            margin: 0 0 0 10px;
+        }
+
+        .lf-color-component input[type='number'] {
+            width: 50px;
+            margin: 0 0 0 10px;
+        }
+
+        .lf-color-preview {
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 5px;
+        }
+
+        .lf-preview {
+            height: 60px;
+            width: 60px;
+        }
+
+        .lf-popover-snapshot {
+            width: 150px;
+        }
+
+        .lf-popover-snapshot h5 {
+            margin: 5px 0 10px 0;
+            font-size: 0.75rem;
+        }
+
+        .lf-popover-snapshot a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .lf-popover-snapshot a:before {
+            content: '⥼';
+            margin-right: 5px;
+        }
+
+        .lf-popover-snapshot .lf-note {
+            display: block;
+            margin-top: 10px;
+            color: #999;
+        }
+
+        .lf-player-controls>div {
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+
+        .lf-player-controls>div:first-child {
+            margin-left: 0px;
+        }
+
+        .lf-player-controls>div:last-child {
+            margin-right: 0px;
+        }
+    </style>
+</head>
+
+<body x-data="{      
+       mobileMenuOpen: false,
+        activeDropdown: null,
+  darkMode: localStorage.getItem('darkMode') === 'true',
+  toggleDarkMode() {
+          this.darkMode = !this.darkMode;
+          localStorage.setItem('darkMode', this.darkMode);
+          
+          if (this.darkMode) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+          } else {
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+          }
+        },
+        toggleDropdown(dropdown) {
+          if (window.innerWidth &lt; 1024) {
+            this.activeDropdown = this.activeDropdown === dropdown ? null : dropdown;
+          }
+        },
+        closeDropdowns() {
+          this.activeDropdown = null;
+        },
+        init() {
+          // Apply dark mode on page load if saved in localStorage
+          const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+          
+          if (savedDarkMode) {
+            this.darkMode = true;
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+          } else {
+            this.darkMode = false;
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+          }
+          
+          // Close dropdowns when clicking outside
+          document.addEventListener('click', (e) =&gt; {
+            if (!e.target.closest('.nav-item') &amp;&amp; !e.target.closest('.dropdown-menu') &amp;&amp; !e.target.closest('.mobile-dropdown-toggle')) {
+              this.closeDropdowns();
+            }
+          });
+          
+          // Reset activeDropdown when resizing to desktop
+          window.addEventListener('resize', () =&gt; {
+            if (window.innerWidth &gt;= 1024) {
+              this.activeDropdown = null;
+              this.mobileMenuOpen = false;
+            }
+          });
+        }
+      }">
+    <div class="dark:bg-dark-primary">
+        <!-- Header Start -->
+        <header
+            class="bg-white dark:bg-dark-primary border-b dark:border-gray-800 border-gray-100 sticky top-0 z-50 py-4 lg:py-0">
+            <div class="px-4 sm:px-6 lg:px-7">
+                <div class="flex items-center justify-between">
+                    <!-- Logo and Mobile Menu Button -->
+                    <div class="flex items-center">
+                        <!-- Logo -->
+                        <a href="index.html">
+                            <img src="./assets/images/logo-blue.svg" class="block dark:hidden " alt=""
+                                style="width: 50px;">
+                            <img src="./assets/images/logo-dark.svg" class="hidden dark:block dark-logo" alt="">
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden lg:flex lg:items-center">
+                        <a href="index.html"
+                            class="text-gray-800 dark:text-white/90 text-sm px-4 py-6 hover:text-primary-500 font-medium">Home</a>
+                        <a href="contact.html"
+                            class="text-gray-500 dark:text-gray-400 text-sm px-4 py-6 hover:text-primary-500 font-medium">Contact
+                            Us</a>
+                        <a href="help.html"
+                            class="text-gray-500 dark:text-gray-400 text-sm px-4 py-6 hover:text-primary-500 font-medium">Get
+                            Help
+                        </a>
+                    </nav>
+
+                    <!-- Right side buttons -->
+                    <div class="flex items-center gap-4">
+                        <!-- Theme toggle -->
+                        <button @click="toggleDarkMode()"
+                            class="inline-flex items-center dark:hover:bg-white/5 dark:hover:text-white/90 hover:bg-gray-100 hover:text-gray-800 text-gray-500 dark:text-gray-400 justify-center border border-gray-200 dark:border-gray-700 rounded-full size-11"
+                            fdprocessedid="9a7cbh">
+                            <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 20 20" fill="none">
+                                <path
+                                    d="M6.24683 7.08492C6.24683 10.7677 9.23232 13.7532 12.9151 13.7532C14.6687 13.7532 16.2641 13.0764 17.4545 11.9697C16.584 15.2727 13.5765 17.7083 10.0001 17.7083C5.74289 17.7083 2.29175 14.2572 2.29175 9.99996C2.29175 6.42356 4.72736 3.41602 8.03036 2.54558C6.92367 3.73594 6.24683 5.33139 6.24683 7.08492Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                            <svg x-show="darkMode" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                                </path>
+                            </svg>
+                        </button>
+                        <!-- Mobile menu button -->
+                        <button @click.stop="mobileMenuOpen = !mobileMenuOpen" type="button"
+                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 lg:hidden"
+                            fdprocessedid="t5urba">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="h-6 w-6" x-show="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                            <svg class="h-6 w-6" x-show="mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                        <!-- Sign In button (desktop) -->
+                        <a href="signin.html"
+                            class="text-sm hidden lg:block font-medium text-gray-700 dark:text-gray-400 hover:text-primary-500">Sign
+                            In</a>
+                        <a href="signup.html"
+                            class="lg:inline-flex items-center px-5 py-3 gradient-btn hidden text-sm text-white rounded-full button-bg h-11">Get
+                            Started Free</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div x-show="mobileMenuOpen"
+                class="lg:hidden absolute bg-white dark:bg-dark-primary w-full border-b border-gray-200 dark:border-gray-800"
+                style="display: none;">
+                <div class="pt-2 pb-3 space-y-1 px-4 sm:px-6">
+                    <a href="index.html"
+                        class="block px-3 py-2 rounded-md text-sm font-medium text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                        Home
+                    </a>
+
+                    <a href="contact.html"
+                        class="block px-3 py-2 rounded-md text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        Contact
+                    </a>
+
+                    <!-- Mobile-only buttons -->
+                    <div class="px-3">
+                        <a href="signin.html"
+                            class="text-sm block py-3 font-medium text-gray-500 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white/90">
+                            Sign In
+                        </a>
+                        <a href="contact.html"
+                            class="inline-flex items-center px-5 py-3 text-sm text-white rounded-full button-bg h-11">
+                            Get Started Free
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header End -->
+
+        <!-- Main Start -->
+        <main>
+            <section class="py-28 relative">
+                <div class="wrapper">
+                    
+                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6 sm:gap-8">
+
+                            <!-- Left column: Contact info (1/3) -->
+                            <div class="">
+                                <div class="bg-gray-100 dark:bg-dark-primary border border-gray-100 dark:border-gray-800 p-6 rounded-2xl shadow-sm">
+                                    <h4 class="text-gray-800 dark:text-white font-semibold text-xl mb-2">Contact Information</h4>
+                                    <p class="text-gray-500 dark:text-gray-400 mb-6">Reach out to any of our site offices below.</p>
+
+                                    <ul class="space-y-6 text-sm">
+                                        <li class="mb-3">
+                                            <div class="flex items-start gap-3">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-500">
+                                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <circle cx="12" cy="9" r="2.5" fill="currentColor"/>
+                                                </svg>
+                                                <div>
+                                                    <p class="text-gray-700 dark:text-white font-medium">Head Office</p>
+                                                    <p class="text-gray-500 dark:text-gray-400">440 Central Avenue Highland Park, IL 60035</p>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="mb-3">
+                                            <div class="flex items-start gap-3">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-500">
+                                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.88.38 1.72.76 2.5a2 2 0 0 1-.45 2.11L8.91 9.91a16 16 0 0 0 6 6l1.59-1.59a2 2 0 0 1 2.11-.45c.78.38 1.62.64 2.5.76A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <div>
+                                                    <p class="text-gray-700 dark:text-white font-medium">Phone</p>
+                                                    <p class="text-gray-500 dark:text-gray-400">(800) 432-7799</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                         <li class="mb-3">
+                                            <div class="flex items-start gap-3">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-500">
+                                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.88.38 1.72.76 2.5a2 2 0 0 1-.45 2.11L8.91 9.91a16 16 0 0 0 6 6l1.59-1.59a2 2 0 0 1 2.11-.45c.78.38 1.62.64 2.5.76A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <div>
+                                                    <p class="text-gray-700 dark:text-white font-medium">Fax</p>
+                                                    <p class="text-gray-500 dark:text-gray-400">(847) 432-8950</p>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="flex items-start gap-3">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-500">
+                                                    <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M22 6L12 13 2 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                <div>
+                                                    <p class="text-gray-700 dark:text-white font-medium">Email</p>
+                                                    <p class="text-gray-500 dark:text-gray-400">support@example.com</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Right column: Form (2/3) -->
+                            <div class="">
+                                <div class="contact-wrapper border p-10 sm:p-14 relative z-30 bg-white border-gray-100 dark:bg-dark-primary dark:border-gray-800 rounded-2xl">
+                                    <div class="text-center mb-12">
+                                        <h3 class="text-gray-800 font-bold dark:text-white text-3xl mb-2">
+                                            Need any Help? Get in touch 👋
+                                        </h3>
+                                        <p class="text-gray-500 dark:text-gray-400">
+                                            Open a ticket, we will get back to you ASAP
+                                        </p>
+                                    </div>
+                                    <form>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                            <div>
+                                                <label for="firstName" class="mb-1 block dark:text-gray-400 text-gray-700 font-medium text-sm">First Name</label>
+                                                <input type="text" class="border w-full text-sm dark:text-white/90 dark:placeholder:text-white/30 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left h-12 shadow-theme-xs border-gray-300 rounded-full px-5 py-2.5" placeholder="Jhamse">
+                                            </div>
+                                            <div>
+                                                <label for="lastName" class="mb-1 block dark:text-gray-400 font-medium text-sm">Last Name</label>
+                                                <input type="text" class="border w-full text-sm dark:text-white/90 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left h-12 shadow-theme-xs dark:placeholder:text-white/30 border-gray-300 rounded-full px-5 py-2.5" placeholder="Enter your last name">
+                                            </div>
+                                            <div class="col-span-full">
+                                                <label for="email" class="mb-1 block dark:text-gray-400 font-medium text-sm">Email address</label>
+                                                <input type="email" class="border w-full text-sm dark:text-white/90 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left h-12 shadow-theme-xs dark:placeholder:text-white/30 border-gray-300 rounded-full px-5 py-2.5" placeholder="example@gmail.com">
+                                            </div>
+                                            <div class="col-span-full">
+                                                <label for="department" class="mb-1 block dark:text-gray-400 font-medium text-sm">Department</label>
+                                                <div>
+                                                    <select class="border w-full text-sm dark:text-white/90 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left h-12 shadow-theme-xs dark:placeholder:text-white/30 border-gray-300 rounded-full px-5 py-2.5">
+                                                        <option value="lessor">Lessor of Equipment</option>
+                                                        <option value="contractor">Origin Contractor</option>
+                                                        <option value="sub-contractor">Sub Contractor</option>
+                                                        <option value="supplier">Supplier</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-span-full">
+                                                <label for="message" class="mb-1 block dark:text-gray-400 font-medium text-sm">Message</label>
+                                                <textarea rows="6" class="border w-full text-sm dark:text-white/90 dark:border-gray-700 text-gray-800 placeholder:text-sm placeholder:text-gray-400 dark:placeholder:text-white/30 focus:border-primary-300 dark:focus:border-primary-500 focus:outline-0 focus:ring-3 focus:ring-primary-300/20 text-left shadow-theme-xs resize-none border-gray-300 rounded-3xl px-5 py-4" placeholder="Type your message"></textarea>
+                                            </div>
+                                            <div class="col-span-full">
+                                                <button class="bg-primary-500 hover:bg-primary-600 transition h-12 py-3 px-6 w-full font-medium text-white text-sm rounded-full">
+                                                    Send Message
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                <span class="absolute -bottom-32 left-1/2 -translate-x-1/2 z-0">
+                    <svg width="930" height="760" viewBox="0 0 930 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g opacity="0.3" filter="url(#filter0_f_9248_10254)">
+                            <circle cx="380.335" cy="380.335" r="179.665" fill="#FF58D5"></circle>
+                        </g>
+                        <g opacity="0.7" filter="url(#filter1_f_9248_10254)">
+                            <circle cx="549.665" cy="380.335" r="179.665" fill="#4E6EFF"></circle>
+                        </g>
+                        <defs>
+                            <filter id="filter0_f_9248_10254" x="0.669922" y="0.6698" width="759.33" height="759.33"
+                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape">
+                                </feBlend>
+                                <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_9248_10254">
+                                </feGaussianBlur>
+                            </filter>
+                            <filter id="filter1_f_9248_10254" x="170" y="0.6698" width="759.33" height="759.33"
+                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape">
+                                </feBlend>
+                                <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_9248_10254">
+                                </feGaussianBlur>
+                            </filter>
+                        </defs>
+                    </svg>
+                </span>
+            </section>
+        </main>
+        <!-- Main End -->
+
+        <!-- Footer Start -->
+        <footer class="relative overflow-hidden bg-gray-900">
+            <span class="absolute top-0 -translate-x-1/2 left-1/2">
+                <svg width="1260" height="457" viewBox="0 0 1260 457" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_f_11105_867)">
+                        <circle cx="630" cy="-173.299" r="230" fill="#3B2EFF"></circle>
+                    </g>
+                    <defs>
+                        <filter id="filter0_f_11105_867" x="0" y="-803.299" width="1260" height="1260"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+                            <feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_11105_867">
+                            </feGaussianBlur>
+                        </filter>
+                    </defs>
+                </svg>
+            </span>
+            <div class="relative z-10 py-16 xl:py-24">
+                <div class="container px-5 mx-auto sm:px-7">
+                    <div class="grid gap-y-8 lg:grid-cols-12">
+                        <div class="lg:col-span-6 xl:col-span-6">
+                            <div>
+                                <a href="index.html" class="block mb-6">
+                                    <img src="./assets/images/logo-dark.svg" alt="">
+                                </a>
+                                <p class="block text-sm text-gray-400 mb-9">
+                                    Smarter lien management with automated compliance, multi-state support, and
+                                    end-to-end case tracking. </p>
+                                <div class="flex">
+                                    <a href="https://www.linkedin.com/company/pimjo/posts/?feedView=all" target="_blank"
+                                        class="text-gray-400 hover:text-white/80 size-10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17"
+                                            viewBox="0 0 16 17" fill="none">
+                                            <g clip-path="url(#clip0_11105_879)">
+                                                <path
+                                                    d="M13.5447 3.68965C12.5249 3.22173 11.4313 2.87699 10.2879 2.67954C10.2671 2.67573 10.2463 2.68525 10.2356 2.7043C10.0949 2.95444 9.93915 3.28077 9.83006 3.53727C8.60027 3.35316 7.37679 3.35316 6.17221 3.53727C6.0631 3.27507 5.90166 2.95444 5.76038 2.7043C5.74966 2.68589 5.72886 2.67636 5.70803 2.67954C4.56527 2.87636 3.47171 3.2211 2.45129 3.68965C2.44246 3.69346 2.43488 3.69982 2.42986 3.70806C0.355594 6.80697 -0.212634 9.82971 0.0661201 12.815C0.0673814 12.8296 0.0755799 12.8435 0.086932 12.8524C1.45547 13.8574 2.78114 14.4676 4.08219 14.872C4.10301 14.8784 4.12507 14.8707 4.13832 14.8536C4.44608 14.4333 4.72043 13.9902 4.95565 13.5241C4.96953 13.4968 4.95628 13.4645 4.92791 13.4537C4.49275 13.2886 4.0784 13.0873 3.67982 12.8588C3.64829 12.8404 3.64577 12.7953 3.67477 12.7737C3.75865 12.7108 3.84255 12.6454 3.92264 12.5794C3.93713 12.5674 3.95732 12.5648 3.97435 12.5724C6.59286 13.7679 9.4277 13.7679 12.0153 12.5724C12.0323 12.5642 12.0525 12.5667 12.0677 12.5788C12.1478 12.6448 12.2316 12.7108 12.3161 12.7737C12.3451 12.7953 12.3433 12.8404 12.3117 12.8588C11.9131 13.0918 11.4988 13.2886 11.063 13.453C11.0346 13.4638 11.022 13.4968 11.0359 13.5241C11.2762 13.9895 11.5505 14.4327 11.8526 14.853C11.8652 14.8707 11.8879 14.8784 11.9087 14.872C13.2161 14.4676 14.5417 13.8574 15.9103 12.8524C15.9223 12.8435 15.9298 12.8302 15.9311 12.8156C16.2647 9.36431 15.3723 6.36636 13.5655 3.7087C13.5611 3.69982 13.5535 3.69346 13.5447 3.68965ZM5.34668 10.9973C4.55833 10.9973 3.90876 10.2735 3.90876 9.38464C3.90876 8.49578 4.54574 7.77202 5.34668 7.77202C6.15392 7.77202 6.79721 8.50214 6.78459 9.38464C6.78459 10.2735 6.14761 10.9973 5.34668 10.9973ZM10.6632 10.9973C9.87484 10.9973 9.22526 10.2735 9.22526 9.38464C9.22526 8.49578 9.86222 7.77202 10.6632 7.77202C11.4704 7.77202 12.1137 8.50214 12.1011 9.38464C12.1011 10.2735 11.4704 10.9973 10.6632 10.9973Z"
+                                                    fill="currentColor" fill-opacity="0.8"></path>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_11105_879">
+                                                    <rect width="16" height="16" fill="currentColor"
+                                                        transform="translate(0 0.919434)"></rect>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                    <a href="https://x.com/PimjoHQ" target="_blank"
+                                        class="text-gray-400 hover:text-white/80 size-10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17"
+                                            viewBox="0 0 16 17" fill="none">
+                                            <path
+                                                d="M12.2176 2.18848H14.4666L9.55323 7.80414L15.3334 15.4458H10.8076L7.26277 10.8112L3.20671 15.4458H0.956369L6.2117 9.43921L0.666748 2.18848H5.30749L8.51168 6.4247L12.2176 2.18848ZM11.4283 14.0997H12.6745L4.63034 3.4639H3.29306L11.4283 14.0997Z"
+                                                fill="currentColor"></path>
+                                        </svg>
+                                    </a>
+                                    <a href="https://github.com/PIMJO" target="_blank"
+                                        class="text-gray-400 hover:text-white/80 size-10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17"
+                                            viewBox="0 0 16 17" fill="none">
+                                            <g clip-path="url(#clip0_11105_885)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M8.00009 1.25293C6.10091 1.25392 4.264 1.92657 2.81783 3.15061C1.37166 4.37465 0.410521 6.07027 0.106282 7.93426C-0.197957 9.79825 0.174536 11.7091 1.15717 13.325C2.13979 14.941 3.66848 16.1568 5.46987 16.7549C5.86729 16.8287 6.01698 16.5824 6.01698 16.3729C6.01698 16.1635 6.00903 15.5563 6.00638 14.8924C3.78085 15.3732 3.31057 13.9533 3.31057 13.9533C2.9476 13.0312 2.42301 12.7889 2.42301 12.7889C1.69706 12.2962 2.47733 12.3054 2.47733 12.3054C3.28143 12.3621 3.70402 13.1261 3.70402 13.1261C4.41672 14.3418 5.57585 13.9901 6.03155 13.7847C6.10309 13.2696 6.31107 12.9193 6.54025 12.7204C4.76247 12.5202 2.89461 11.8378 2.89461 8.78988C2.88359 7.9994 3.1786 7.23496 3.71859 6.65472C3.63646 6.4545 3.36224 5.64575 3.79675 4.54722C3.79675 4.54722 4.46839 4.33383 5.99712 5.36256C7.30836 5.00601 8.69183 5.00601 10.0031 5.36256C11.5305 4.33383 12.2008 4.54722 12.2008 4.54722C12.6366 5.64312 12.3624 6.45187 12.2803 6.65472C12.822 7.23506 13.1176 8.00083 13.1056 8.79251C13.1056 11.8471 11.2337 12.5202 9.45331 12.7164C9.73945 12.964 9.99512 13.4475 9.99512 14.1903C9.99512 15.2546 9.98585 16.1108 9.98585 16.3729C9.98585 16.585 10.1302 16.8326 10.5356 16.7549C12.3372 16.1567 13.866 14.9407 14.8487 13.3245C15.8313 11.7082 16.2036 9.79713 15.899 7.93296C15.5944 6.0688 14.6328 4.37317 13.1861 3.14933C11.7395 1.9255 9.90215 1.25329 8.00274 1.25293H8.00009Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M3.02954 12.6743C3.01232 12.7139 2.94873 12.7257 2.89707 12.6981C2.84541 12.6704 2.80699 12.619 2.82554 12.5782C2.84408 12.5374 2.90635 12.5268 2.95801 12.5545C3.00967 12.5821 3.04941 12.6348 3.02954 12.6743Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M3.35423 13.0339C3.3268 13.0476 3.29541 13.0514 3.26545 13.0447C3.23548 13.038 3.2088 13.0211 3.18997 12.997C3.13831 12.9417 3.1277 12.8653 3.16744 12.831C3.20719 12.7968 3.27873 12.8126 3.33039 12.8679C3.38205 12.9232 3.39398 12.9996 3.35423 13.0339Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M3.66958 13.4908C3.62056 13.525 3.5371 13.4908 3.49074 13.4223C3.47791 13.41 3.46772 13.3953 3.46075 13.379C3.45379 13.3627 3.4502 13.3452 3.4502 13.3275C3.4502 13.3098 3.45379 13.2922 3.46075 13.2759C3.46772 13.2596 3.47791 13.2449 3.49074 13.2326C3.53975 13.1997 3.62321 13.2326 3.66958 13.2998C3.71594 13.367 3.71727 13.4565 3.66958 13.4908Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M4.09725 13.9334C4.05353 13.9822 3.96478 13.969 3.89192 13.9031C3.81906 13.8373 3.80183 13.7477 3.84555 13.7003C3.88926 13.6529 3.97802 13.666 4.05353 13.7306C4.12904 13.7951 4.14361 13.886 4.09725 13.9334Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M4.69753 14.1917C4.67766 14.2536 4.58758 14.2813 4.4975 14.2549C4.40742 14.2286 4.3478 14.1548 4.36502 14.0916C4.38225 14.0284 4.47365 13.9994 4.56506 14.0284C4.65646 14.0573 4.71475 14.1271 4.69753 14.1917Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M5.35189 14.2361C5.35189 14.3006 5.27771 14.3559 5.18233 14.3572C5.08695 14.3586 5.00879 14.3059 5.00879 14.2413C5.00879 14.1768 5.08297 14.1215 5.17835 14.1201C5.27373 14.1188 5.35189 14.1702 5.35189 14.2361Z"
+                                                    fill="currentColor"></path>
+                                                <path
+                                                    d="M5.96118 14.1349C5.9731 14.1994 5.90687 14.2666 5.81149 14.2824C5.71611 14.2982 5.63265 14.26 5.62073 14.1968C5.60881 14.1336 5.67769 14.0651 5.77042 14.0479C5.86315 14.0308 5.94926 14.0703 5.96118 14.1349Z"
+                                                    fill="currentColor"></path>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_11105_885">
+                                                    <rect width="16" height="16" fill="currentColor"
+                                                        transform="translate(0 0.919434)"></rect>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                    <a href="https://www.facebook.com/PimjoHQ" target="_blank"
+                                        class="text-gray-400 hover:text-white/80 size-10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19"
+                                            viewBox="0 0 18 19" fill="none">
+                                            <g clip-path="url(#clip0_11105_895)">
+                                                <path
+                                                    d="M10.5 11.0444H12.375L13.125 8.04443H10.5V6.54443C10.5 5.7724 10.5 5.04443 12 5.04443H13.125V2.52451C12.8807 2.49207 11.9573 2.41943 10.9822 2.41943C8.9463 2.41943 7.5 3.66208 7.5 5.94422V8.04443H5.25V11.0444H7.5V17.4194H10.5V11.0444Z"
+                                                    fill="currentColor"></path>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_11105_895">
+                                                    <rect width="18" height="18" fill="currentColor"
+                                                        transform="translate(0 0.919434)"></rect>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:col-span-6 xl:col-span-6">
+                            <div class="grid gap-7 text-right">
+                                <div>
+                                    <span class="relative block mb-6 text-sm text-gray-400">Account</span>
+                                    <nav class="flex flex-col space-y-3">
+                                        <a href="signin.html"
+                                            class="text-sm font-normal text-gray-400 transition hover:text-white">
+                                            Login
+                                        </a>
+                                        <a href="signup.html"
+                                            class="text-sm font-normal text-gray-400 transition hover:text-white">
+                                            Sign Up
+                                        </a>
+                                        <a href="help.html"
+                                            class="text-sm font-normal text-gray-400 transition hover:text-white">
+                                            Get Help
+                                        </a>
+                                        <a href="contact.html"
+                                            class="text-sm font-normal text-gray-400 transition hover:text-white">
+                                            Contact Us
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800">
+                <div class="container relative z-10 px-5 mx-auto sm:px-7">
+                    <div class="py-5 text-center" x-data="{ currentYear: new Date().getFullYear() }">
+                        <p class="text-sm text-gray-500">
+                            © <span x-text="currentYear">2025</span>&nbsp; LienManager Pro - All Rights
+                            Reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End -->
+    </div>
+
+    <script defer="" src="./assets/js/alpine.min.js"></script>
+    <script defer="" src="./assets/js/glightbox.min.js"></script>
+    <script defer="" src="./assets/js/app.js"></script>
+    <script defer=""
+        src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+        integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
+        data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;9a6015d415bb4773a0bff22543062d3b&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}"
+        crossorigin="anonymous"></script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9b219aa4f8248228',t:'MTc2NjQyNzMyMQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+    <iframe height="1" width="1"
+        style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe>
+
+    <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
+</body>
+
+</html>
